@@ -14,10 +14,11 @@
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
   <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-
+  <script src='vendors/jquery/jquery-3.2.1.min.js'></script>
+  <script src="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="orderConfirmed()">
   <!--================ Start Header Menu Area =================-->
 	<header class="header_area">
     <div class="main_menu">
@@ -38,10 +39,7 @@
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Track Order</a></li> 
                 </ul>
 							</li>
               <li class="nav-item submenu dropdown">
@@ -66,7 +64,7 @@
 
             <ul class="nav-shop">
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a type="button" href="cart.html"><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></a> </li>
               <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
@@ -105,19 +103,19 @@
             <table class="order-rable">
               <tr>
                 <td>Order number</td>
-                <td>: 60235</td>
+                <td id="orderid">: 60235</td>
               </tr>
               <tr>
                 <td>Date</td>
-                <td>: Oct 03, 2017</td>
+                <td id="ordertime">: Oct 03, 2017</td>
               </tr>
               <tr>
                 <td>Total</td>
-                <td>: USD 2210</td>
+                <td id="orderbill">: USD 2210</td>
               </tr>
               <tr>
                 <td>Payment method</td>
-                <td>: Check payments</td>
+                <td>: Cash On Delivery</td>
               </tr>
             </table>
           </div>
@@ -127,21 +125,10 @@
             <h3 class="billing-title">Billing Address</h3>
             <table class="order-rable">
               <tr>
-                <td>Street</td>
-                <td>: 56/8 panthapath</td>
+                <td>Complete Address</td>
+                <td id="billingaddress">: 56/8 panthapath</td>
               </tr>
-              <tr>
-                <td>City</td>
-                <td>: Dhaka</td>
-              </tr>
-              <tr>
-                <td>Country</td>
-                <td>: Bangladesh</td>
-              </tr>
-              <tr>
-                <td>Postcode</td>
-                <td>: 1205</td>
-              </tr>
+              
             </table>
           </div>
         </div>
@@ -150,20 +137,8 @@
             <h3 class="billing-title">Shipping Address</h3>
             <table class="order-rable">
               <tr>
-                <td>Street</td>
-                <td>: 56/8 panthapath</td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>: Dhaka</td>
-              </tr>
-              <tr>
-                <td>Country</td>
-                <td>: Bangladesh</td>
-              </tr>
-              <tr>
-                <td>Postcode</td>
-                <td>: 1205</td>
+                <td>Shipping Address</td>
+                <td id="shippingaddress">: 56/8 panthapath</td>
               </tr>
             </table>
           </div>
@@ -180,40 +155,10 @@
                 <th scope="col">Total</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <p>Pixelstore fresh Blackberry</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Pixelstore fresh Blackberry</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Pixelstore fresh Blackberry</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
+            <tbody id="orderItems">
+      
+              <!-- ORDER ITEMS WILL APPEND HERE -->
+      
               <tr>
                 <td>
                   <h4>Subtotal</h4>
@@ -222,7 +167,7 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <p>$2160.00</p>
+                  <p id="subtotal">$2160.00</p>
                 </td>
               </tr>
               <tr>
@@ -233,7 +178,7 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <p>Flat rate: $50.00</p>
+                  <p>Free</p>
                 </td>
               </tr>
               <tr>
@@ -244,7 +189,7 @@
                   <h5></h5>
                 </td>
                 <td>
-                  <h4>$2210.00</h4>
+                  <h4 id="total">$2210.00</h4>
                 </td>
               </tr>
             </tbody>

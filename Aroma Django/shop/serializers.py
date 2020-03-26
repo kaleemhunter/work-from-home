@@ -58,16 +58,11 @@ class CartSerializer(serializers.ModelSerializer):
         return CartProducts.objects.create(cart=cart, product=instance_product, **validated_data)
 
 
-# class OrderProductSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = OrderProduct
-#         fields = ['products', 'quantity']
-
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['id', 'user', 'orderproduct', 'shipping_address', 'status', 'total_bill']
+        fields = ['id', 'user', 'orderproducts', 'shipping_address', 'status', 'total_bill', 'added']
         depth = 2
 
     def create(self, validated_data):

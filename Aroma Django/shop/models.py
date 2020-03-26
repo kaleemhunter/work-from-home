@@ -32,6 +32,9 @@ class Review(models.Model):
     product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('user', 'product',)
+
     def __str__(self):
         return self.review_comment
 
@@ -57,11 +60,12 @@ class CartProducts(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, related_name='orders', default=1, on_delete=models.CASCADE)
-    orderproduct = models.ManyToManyField(Product, through='OrderProduct')
+    # orderproduct = models.ManyToManyField(Product, through='OrderProduct')
     shipping_address = models.CharField(max_length=100)
     status = models.CharField(max_length=10, default='Pending')
     total_bill = models.CharField(max_length=10, default='0')
     transaction_id = models.CharField(max_length=10, default='0')  # ONE-TO-ONE with Payments Table ID
+    added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user.username

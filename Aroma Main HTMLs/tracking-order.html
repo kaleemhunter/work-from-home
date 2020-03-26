@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
   <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-
+  <script src='vendors/jquery/jquery-3.2.1.min.js'></script>
+  <script src="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,11 +38,9 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Blog Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+				  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Track Order</a></li> 
+               
                 </ul>
 							</li>
               <li class="nav-item submenu dropdown">
@@ -66,7 +65,7 @@
 
             <ul class="nav-shop">
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a type="button" href="cart.html"><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></a> </li>
               <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
@@ -99,23 +98,30 @@
   <section class="tracking_box_area section-margin--small">
       <div class="container">
           <div class="tracking_box_inner">
-              <p>To track your order please enter your Order ID in the box below and press the "Track" button. This
-                  was given to you on your receipt and in the confirmation email you should have received.</p>
+              <p>To track your order please enter your Order ID in the box below and press the "Track" button.</p>
               <form class="row tracking_form" action="#" method="post" novalidate="novalidate">
                   <div class="col-md-12 form-group">
-                      <input type="text" class="form-control" id="order" name="order" placeholder="Order ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Order ID'">
+                      <input type="text" class="form-control" id="orderid" name="order" placeholder="Order ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Order ID'">
                   </div>
                   <div class="col-md-12 form-group">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Billing Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Billing Email Address'">
-                  </div>
-                  <div class="col-md-12 form-group">
-                      <button type="submit" value="submit" class="button button-tracking">Track Order</button>
+                      <button type="button" value="submit" class="button button-tracking" id="trackOrder">Track Order</button>
                   </div>
               </form>
           </div>
       </div>
   </section>
   <!--================End Tracking Box Area =================-->
+
+
+  <div id="trackingDetails">
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container" id="trackingDetails">
+      
+    </div>
+  </section>
+  <!--================End Order Details Area =================-->
+</div>
 
 
 
