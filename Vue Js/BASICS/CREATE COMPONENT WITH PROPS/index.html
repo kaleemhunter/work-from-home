@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <div id="app">
+            <ol>
+                <category-item
+                    v-for='category in categoryList'
+                    v-bind:category='category'
+                    v-bind:key='category.id'
+                >
+                </category-item>
+            </ol>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

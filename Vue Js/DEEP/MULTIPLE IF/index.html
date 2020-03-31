@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <div id="app">
+            <template v-if='seen'>
+                <p>This is some multiple text</p>
+                <p>Showing in template</p>
+                <p>Vue Js is awesome</p>
+            </template>
+
+            <span v-if="name === 'kaleem'">
+                hi
+            </span>
+
+            <span v-else-if="name === 'shahzad'">
+                bye
+            </span>
+
+            <span v-else="name === 'kaleem-shahzad'">
+                hi bye
+            </span>
+            
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
